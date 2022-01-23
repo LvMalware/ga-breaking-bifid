@@ -1,3 +1,11 @@
+/*
+ * Copyright (C) 2022 Lucas V. Araujo <lucas.vieira.ar@disroot.org>
+ *
+ * This program is a free software. You can use, redistribute and/or modify
+ * it under the terms of the GNU General Public License as published by the
+ * Free Software Foundation; either version 3, or any later version.
+ */
+
 #ifndef _CROMOSSOME_H
 #define _CROMOSSOME_H
 
