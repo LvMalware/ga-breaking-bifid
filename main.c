@@ -49,7 +49,7 @@ main(int argc, char *argv[])
             );
 
     ga *g = new_ga("ABCDEFGHIKLMNOPQRSTUVWXYZ", decrypt);
-    /* choose a random initial the population */
+    /* choose a random initial population */
     init_population(g, 3000, 25); 
     size_t start = time(NULL);
     ga_evolve(g, 12000, 3000, 1000, 0.8, 0.8);
