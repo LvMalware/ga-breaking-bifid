@@ -50,6 +50,16 @@ new_cromossome (const size_t key_len, char * const alphabet)
     return c;
 }
 
+static inline
+double bg_freq(const char *b)
+{
+    size_t i;
+    for (i = 0; i < sizeof(bigrams) / sizeof(bg); i ++)
+        if (strncmp(b, bigrams[i].b, 2) == 0)
+            return bigrams[i].f;
+    return 0;
+}
+
 double
 cromossome_fitness (cromossome * const c, char * (*decrypt)(char * const key))
 {
@@ -57,8 +67,13 @@ cromossome_fitness (cromossome * const c, char * (*decrypt)(char * const key))
     {
         size_t i;
         char *plain = decrypt(c->key);
+#ifndef BIGRAM_FREQUENCY_AS_FITNESS
         for (i = 0; i < strlen(plain); i ++)
             c->fitness += frequences[toupper(plain[i]) - 65];
+#else
+        for (i = 0; i < strlen(plain) - 1; i ++)
+            c->fitness += bg_freq(&plain[i]);
+#endif /* BIGRAM_FREQUENCY_AS_FITNESS */
         free(plain);
     }
     return c->fitness;

@@ -41,9 +41,10 @@ main(int argc, char *argv[])
             );
 
     ga *g = new_ga("ABCDEFGHIKLMNOPQRSTUVWXYZ", decrypt);
-    init_population(g, 2500, 25); 
+    /* choose a random initial the population */
+    init_population(g, 3000, 25); 
     size_t start = time(NULL);
-    ga_evolve(g, 12000, 5000, 1000, 0.8, 0.8);
+    ga_evolve(g, 12000, 3000, 1000, 0.8, 0.8);
     size_t end = time(NULL);
     size_t duration = end - start;
     printf("It took %lu seconds.\n", duration);
