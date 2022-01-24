@@ -30,22 +30,35 @@ main(int argc, char *argv[])
 {
     srand(time(NULL));
     
+    /* Apparently Portuguese can't be broken with monograms... */
     
     char key[] = "CLZUPIYDVNWGXTARSHKFMEBQO";
     bifid *b = bifid_init(key, BLOCK_SIZE, MODE);
     ciphertext = bifid_encrypt(b,
-            "She should have died hereafter;"
-            "There would have been a time for such a word."
-            "To-morrow, and to-morrow, and to-morrow,"
-            "Creeps in this petty pace from day to day"
-            "To the last syllable of recorded time,"
-            "And all our yesterdays have lighted fools"
-            "The way to dusty death. Out, out, brief candle!"
-            "Life's but a walking shadow, a poor player"
-            "That struts and frets his hour upon the stage"
-            "And then is heard no more: it is a tale"
-            "Told by an idiot, full of sound and fury,"
-            "Signifying nothing."
+        "Minha terra tem palmeiras,"
+        "Onde canta o Sabia;"
+        "As aves, que aqui gorjeiam,"
+        "Não gorjeiam como la."
+        "Nosso ceu tem mais estrelas,"
+        "Nossas varzeas tem mais flores,"
+        "Nossos bosques tem mais vida,"
+        "Nossa vida mais amores."
+        "Em cismar, sozinho, a noite,"
+        "Mais prazer encontro eu la;"
+        "Minha terra tem palmeiras,"
+        "Onde canta o Sabia."
+        "Minha terra tem primores,"
+        "Que tais nao encontro eu ca;"
+        "Em cismar — sozinho, a noite —"
+        "Mais prazer encontro eu la;"
+        "Minha terra tem palmeiras,"
+        "Onde canta o Sabia."
+        "Nao permita Deus que eu morra,"
+        "Sem que eu volte para la;"
+        "Sem que desfrute os primores"
+        "Que nao encontro por ca;"
+        "Sem quinda aviste as palmeiras,"
+        "Onde canta o Sabia."
             );
 
     ga *g = new_ga("ABCDEFGHIKLMNOPQRSTUVWXYZ", decrypt);
