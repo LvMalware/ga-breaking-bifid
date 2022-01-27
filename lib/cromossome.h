@@ -16,6 +16,7 @@
 
 #define BIGRAM_FREQUENCY_AS_FITNESS
 
+#include <math.h>
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
@@ -24,7 +25,6 @@
  * source: http://www.mat.uc.pt/~pedro/cientificos/Cripto/
  */
 static const double frequences[] = {
-
     /* a */ 14.811241, /* e */ 12.775882, /* o */ 10.633712,
     /* s */ 7.917737, /* r */ 6.73638, /* i */ 5.898991, /* d */ 5.094293,
     /* n */ 4.909511, /* m */ 4.665041, /* u */ 4.473257, /* t */ 4.174096,
@@ -40,7 +40,6 @@ typedef struct bg
     double f;
 } bg;
 
-/* frequency of english bigrams */
 static const bg bigrams[] = {
     { "VA", 0.700842 }, { "AN", 1.190085 }, { "OS", 1.910517 },
     { "UE", 1.355447 }, { "DE", 2.291532 }, { "ER", 1.455598 },
@@ -63,7 +62,7 @@ static const bg bigrams[] = {
 
 typedef struct cromossome
 {
-    char *key;
+    char key[26];
     size_t key_len;
     double fitness;
 } cromossome;
