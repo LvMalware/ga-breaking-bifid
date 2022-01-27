@@ -16,6 +16,7 @@
 
 #define BIGRAM_FREQUENCY_AS_FITNESS
 
+#include <math.h>
 #include <ctype.h>
 #include <string.h>
 #include <stdlib.h>
@@ -28,7 +29,7 @@ static const double frequences[] = {
         /* m */ 0.0202124, /* n */ 0.0564513, /* o */ 0.0596302, /* p */ 0.0137645,
         /* q */ 0.0008606, /* r */ 0.0497563, /* s */ 0.0515760, /* t */ 0.0729357,
         /* u */ 0.0225134, /* v */ 0.0082903, /* w */ 0.0171272, /* x */ 0.0013692,
-        /* y */ 0.0145984, /* z */ 0.0007836, /*   */ 0.1918182
+        /* y */ 0.0145984, /* z */ 0.0007836 
 };
 
 typedef struct bg
@@ -56,7 +57,7 @@ static const bg bigrams[] = {
 
 typedef struct cromossome
 {
-    char *key;
+    char key[26];
     size_t key_len;
     double fitness;
 } cromossome;

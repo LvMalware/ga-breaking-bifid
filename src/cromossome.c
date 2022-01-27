@@ -13,7 +13,6 @@ cromossome_crossover (cromossome * const a, cromossome * const b)
 {
     cromossome *c = calloc(1, sizeof(*c));
     c->key_len = a->key_len;
-    c->key = calloc(c->key_len + 1, sizeof(char));
 
     char *k1 = (a->fitness > b->fitness) ? a->key : b->key;
     char *k2 = (k1 == a->key) ? b->key : a->key;
@@ -54,7 +53,7 @@ new_cromossome (const size_t key_len, char * const alphabet)
     cromossome * c = calloc(1, sizeof(*c));
     c->key_len = key_len;
     shuffle(alphabet);
-    c->key = strndup(alphabet, key_len);
+    memcpy(c->key, alphabet, key_len);
     return c;
 }
 
@@ -64,7 +63,7 @@ double bg_freq(const char *b)
     size_t i;
     for (i = 0; i < sizeof(bigrams) / sizeof(bg); i ++)
         if (strncmp(b, bigrams[i].b, 2) == 0)
-            return bigrams[i].f;
+            return log(100 * bigrams[i].f) / log(10);
     return 0;
 }
 
@@ -98,6 +97,5 @@ mutate_cromossome (cromossome * const c)
 void
 del_cromossome (cromossome * c)
 {
-    free(c->key);
     free(c);
 }
