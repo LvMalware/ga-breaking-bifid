@@ -1,7 +1,7 @@
 INCLUDES=-Ilib
 SOURCES=src/*.c main.c
 OUTPUT=bfbreak
-CFLAGS=-Wall -lm $(INCLUDES) -g -O3 -o $(OUTPUT)
+CFLAGS=-Wall $(INCLUDES) -g -O3 -o $(OUTPUT)
 
 all: $(SOURCES)
 	$(CC) $(CFLAGS) $(SOURCES)
