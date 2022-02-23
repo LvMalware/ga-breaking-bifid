@@ -52,7 +52,7 @@ main(int argc, char *argv[])
     /* choose a random initial population */
     init_population(g, 3000, 25); 
     size_t start = time(NULL);
-    ga_evolve(g, 12000, 3000, 1000, 0.8, 0.8);
+    ga_evolve(g, 12000, 3000, 1200, 0.8, 0.6);
     size_t end = time(NULL);
     size_t duration = end - start;
     printf("It took %lu seconds.\n", duration);
