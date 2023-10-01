@@ -33,20 +33,14 @@ main(int argc, char *argv[])
     
     char key[] = "CLZUPIYDVNWGXTARSHKFMEBQO";
     bifid *b = bifid_init(key, BLOCK_SIZE, MODE);
+    // from "Other People" by Neil Gaiman
     ciphertext = bifid_encrypt(b,
-            "She should have died hereafter;"
-            "There would have been a time for such a word."
-            "To-morrow, and to-morrow, and to-morrow,"
-            "Creeps in this petty pace from day to day"
-            "To the last syllable of recorded time,"
-            "And all our yesterdays have lighted fools"
-            "The way to dusty death. Out, out, brief candle!"
-            "Life's but a walking shadow, a poor player"
-            "That struts and frets his hour upon the stage"
-            "And then is heard no more: it is a tale"
-            "Told by an idiot, full of sound and fury,"
-            "Signifying nothing."
-            );
+            "When he was done, he sat there, eyes closed, waiting for the voice to say, 'Again.', but nothing was said. He opened his eyes."
+            "Slowly he stood up. He was alone."
+            "At the far end of the room, there was a door, and as he watched, it opened."
+            "A man stepped through the door. There was terror in the man's face, and arrogance, and pride. The man, who wore expensive clothes, took several hesitant steps into the room, and then stopped."
+            "When he saw the man, he understood."
+            "'Time is fluid here', he told the new arrival.");
 
     ga *g = new_ga("ABCDEFGHIKLMNOPQRSTUVWXYZ", decrypt);
     /* choose a random initial population */
